@@ -68,7 +68,8 @@ class RegionMergeCommand(sublime_plugin.TextCommand):
 		with open(theirFile, mode='w') as f:
 			f.write(theirs.encode("utf-8"))
 
-		Popen('%s "%s" "%s" "%s"' % (MERGEPROG, ourFile, commonFile, theirFile))
+		cmdLine = [MERGEPROG, ourFile, commonFile, theirFile]
+		Popen(cmdLine)
 
 
 class RegionMergeResultCommand(sublime_plugin.TextCommand):
